@@ -1,1 +1,1 @@
-**Code Build build specification for Python and Django**
+**Code Build build specification for Python and Django in Amazon Linux**
