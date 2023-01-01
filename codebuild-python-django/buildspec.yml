@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+
+  build:
+    commands:
+      - sudo yum -y clean all
+      - sudo rm -rf /var/cache/yum
+      - sudo yum -y update 
+      - sudo yum -y groupinstall "Development Tools"
+      - sudo yum -y remove openssl-devel
+      - sudo yum -y install openssl11
+      - sudo yum -y install openssl11-devel
+      - sudo yum -y install bzip2-devel libffi-devel 
+      - wget https://www.python.org/ftp/python/3.11.1/Python-3.11.1.tgz 
+      - tar xzf Python-3.11.1.tgz 
+      - cd Python-3.11.1 
+      - sudo ./configure --enable-optimizations 
+      - sudo make altinstall 
+      - sudo yum -y install python-pip
+      - python -m pip install Django
+      - python --version
+      - python -c "import django; print(django.get_version())"
+      - echo Build completed on `date`
+
+      
